@@ -1,9 +1,10 @@
 console.clear();
+
 // factory pattern
 const personfactory = function(name){
 	temp = {};
-  temp.name = name;
-  temp.getname = function(){
+  	temp.name = name;
+  	temp.getname = function(){
 		return this.name;
 	}
   return temp;
@@ -18,11 +19,12 @@ console.log(bhai.getname());
 //constructor pattern
 const personconstructor = function(name){
 	this.name = name;
-  this.getname = function(){
+  	this.getname = function(){
 		return this.name;
 	}
 }
 
+//see the usage of new()
 let _aritra = new personconstructor('_aritra');
 let _bhai = new personconstructor('_bhai');
 console.log('--------Constructor pattern-----------');
@@ -33,11 +35,13 @@ console.log(_bhai.getname());
 //prototyping pattern
 const personprototype = function(name){
 	this.name = name;
-  personprototype.prototype.getname = function(){
+	//methods are prototyped, so new can be used to instantiate a record
+	//But now each object has its own getname method, which is not desired
+	personprototype.prototype.getname = function(){
 		return this.name;
 	}
 }
-  
+
 let __aritra = new personprototype('__aritra');
 let __bhai = new personprototype('__bhai');
 console.log('--------Prototyping pattern-----------');
@@ -47,10 +51,12 @@ console.log(__bhai.getname());
 //dynamic prototyping pattern
 const personprototypedynamic = function(){
 	personprototypedynamic.prototype.name = name;
+
+	//Now will have one copy of the method even if there are many prototype records
 	if(typeof(personprototype.getname) != 'function'){
-  	personprototype.prototype.getname = function(){
-  		return this.name;
-		}  
+  		personprototype.prototype.getname = function(){
+  			return this.name;
+		}	  
 	}
 }
 let ___aritra = new personprototype('__aritra');
