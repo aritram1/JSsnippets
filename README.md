@@ -9,9 +9,11 @@ Currently the following topics are in progress :
 - Event Propagation (Basic)
 
 ## To be done
-- Everything is an object (Call/Apply/Bind and Usages) ...
+- Everything is an object (Call/Apply/Bind and Usages)
 - Closures, Currying
-- Callback, Asynchronous functions ...
+- Callback, Asynchronous functions
 - Promise, Async await 
 - File I/O operations
 - Webservices (Http/Rest) requests
+
+More...
